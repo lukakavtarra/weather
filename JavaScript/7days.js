@@ -86,29 +86,14 @@ button.addEventListener("click", function() {
                 "გრადუსი: " + Math.round(weeklyFifthWeather - 273.15) + "°";
 
             // DATE
-            let weeklyFirstDate,
-                weeklySecondDate,
-                weeklyThirdDate,
-                weeklyFourthDate,
-                weeklyFifthDate;
-            [
-                weeklyFirstDate,
-                weeklySecondDate,
-                weeklyThirdDate,
-                weeklyFourthDate,
-                weeklyFifthDate,
-            ] = [
-                new Date(data["list"][0]["dt_txt"]),
-                new Date(data["list"][8]["dt_txt"]),
-                new Date(data["list"][16]["dt_txt"]),
-                new Date(data["list"][24]["dt_txt"]),
-                new Date(data["list"][32]["dt_txt"]),
+
+            const gettingDate = [
+                firstDate,
+                secondDate,
+                thirdDate,
+                fourthDate,
+                fifthDate,
             ];
-            firstDate.innerHTML = weekday[weeklyFirstDate.getDay()];
-            secondDate.innerHTML = weekday[weeklySecondDate.getDay()];
-            thirdDate.innerHTML = weekday[weeklyThirdDate.getDay()];
-            fourthDate.innerHTML = weekday[weeklyFourthDate.getDay()];
-            fifthDate.innerHTML = weekday[weeklyFifthDate.getDay()];
 
             //Weather Type
 
@@ -165,8 +150,11 @@ button.addEventListener("click", function() {
                     "მგრძნობელობა: " +
                     Math.round(data["list"][i]["main"]["feels_like"] - 273.15) +
                     "°";
+                //getting date
+                let dateFormat = new Date(data["list"][i]["dt_txt"]);
                 gettingWeatherType[j].innerHTML =
                     data["list"][i]["weather"][0]["description"];
+                gettingDate[j].innerHTML = weekday[dateFormat.getDay()];
                 j++;
             }
 
