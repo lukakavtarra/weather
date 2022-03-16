@@ -1,0 +1,106 @@
+@font-face {
+    font-family: myFont;
+    src: url(../fonts/bpg_nino_mtavruli_bold_[FONTS.GE]/bpg_nino_mtavruli_bold.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: myFont, sans-serif;
+    /* font-family: "Hubballi", cursive; */
+    background: #dd5e89;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f7bb97, #dd5e89);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f7bb97, #dd5e89);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.input {
+    text-align: center;
+    margin: 100px 0;
+}
+
+input[type="text"] {
+    height: 50px;
+    width: 600px;
+    background-color: #e7e7e7;
+    font-family: "Hubballi", cursive;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    opacity: 0.6;
+}
+
+input[type="text"]:focus {
+    opacity: 0.9;
+}
+
+input[type="submit"] {
+    height: 50px;
+    width: 100px;
+    background-color: #e7e7e7;
+    font-family: "Hubballi", cursive;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    border: none;
+    opacity: 0.8;
+    border-radius: 10px;
+}
+
+input[type="submit"]:active {
+    opacity: 1;
+}
+
+.display {
+    text-align: center;
+    display: grid;
+    justify-content: center;
+}
+
+#name,
+#temp,
+#desc {
+    padding: 30px 201px;
+    margin-top: 30px;
+}
+
+.weather {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.border {
+    border: 1px solid gray;
+    padding: 1rem 6rem 1rem 1rem;
+    box-shadow: -1px 5px 12px 0px;
+    background-image: url(../img/360_F_461232389_XCYvca9n9P437nm3FrCsEIapG4SrhufP.jpg);
+    opacity: 0.8;
+    background-size: cover;
+}
+
+p {
+    margin: 50px 14px 5px 3px;
+    font-size: 21px;
+}
+
+h1 {
+    margin: 0 0 10px 71px;
+    font-style: italic;
+    opacity: 0.6;
+    font-size: 60px;
+}
+
+
+/* .weather div {
+    border: 1px solid;
+    padding: 5rem;
+    margin: 5rem 1rem;
+} */
