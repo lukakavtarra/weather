@@ -56,34 +56,13 @@ button.addEventListener("click", function() {
             let nameValue = data["city"]["name"];
             name.innerHTML = nameValue;
             // WEEKLY WEATHER
-            let weeklyFirstWeather,
-                weeklySecondWeather,
-                weeklyThirdWeather,
-                weeklyFourthWeather,
-                weeklyFifthWeather;
-            [
-                weeklyFirstWeather,
-                weeklySecondWeather,
-                weeklyThirdWeather,
-                weeklyFourthWeather,
-                weeklyFifthWeather,
-            ] = [
-                data["list"][0]["main"]["temp"],
-                data["list"][8]["main"]["temp"],
-                data["list"][16]["main"]["temp"],
-                data["list"][24]["main"]["temp"],
-                data["list"][32]["main"]["temp"],
+            const gettingWeather = [
+                firstWeather,
+                secondWeather,
+                thirdWeather,
+                fourthWeather,
+                fifthWeather,
             ];
-            firstWeather.innerHTML =
-                "გრადუსი: " + Math.round(weeklyFirstWeather - 273.15) + "°";
-            secondWeather.innerHTML =
-                "გრადუსი: " + Math.round(weeklySecondWeather - 273.15) + "°";
-            thirdWeather.innerHTML =
-                "გრადუსი: " + Math.round(weeklyThirdWeather - 273.15) + "°";
-            fourthWeather.innerHTML =
-                "გრადუსი: " + Math.round(weeklyFourthWeather - 273.15) + "°";
-            fifthWeather.innerHTML =
-                "გრადუსი: " + Math.round(weeklyFifthWeather - 273.15) + "°";
 
             // DATE
 
@@ -135,26 +114,34 @@ button.addEventListener("click", function() {
             let j = 0;
 
             for (let i = 0; i < 33; i += 8) {
-                //max temp
-                gettingMaxTemp[j].innerHTML =
-                    "მაქს. ტემპერატურა: " +
-                    (data["list"][i]["main"]["temp_max"] - 273.15).toFixed(1) +
-                    "°";
-                //min temp
-                gettingMinTemp[j].innerHTML =
-                    "მინ. ტემპერატურა: " +
-                    (data["list"][i]["main"]["temp_min"] - 273.15).toFixed(1) +
+                //weather
+                gettingWeather[j].innerHTML =
+                    "გრადუსი: " +
+                    Math.round(data["list"][i]["main"]["temp"] - 273.15) +
                     "°";
                 //feels like
                 gettingFeels[j].innerHTML =
                     "მგრძნობელობა: " +
                     Math.round(data["list"][i]["main"]["feels_like"] - 273.15) +
                     "°";
-                //getting date
-                let dateFormat = new Date(data["list"][i]["dt_txt"]);
+                //min temp
+                gettingMinTemp[j].innerHTML =
+                    "მინ. ტემპერატურა: " +
+                    (data["list"][i]["main"]["temp_min"] - 273.15).toFixed(1) +
+                    "°";
+                //max temp
+                gettingMaxTemp[j].innerHTML =
+                    "მაქს. ტემპერატურა: " +
+                    (data["list"][i]["main"]["temp_max"] - 273.15).toFixed(1) +
+                    "°";
+                //weather type
                 gettingWeatherType[j].innerHTML =
                     data["list"][i]["weather"][0]["description"];
+                //getting date
+                let dateFormat = new Date(data["list"][i]["dt_txt"]);
+
                 gettingDate[j].innerHTML = weekday[dateFormat.getDay()];
+
                 j++;
             }
 
