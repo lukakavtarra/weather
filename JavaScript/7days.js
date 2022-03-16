@@ -127,28 +127,12 @@ button.addEventListener("click", function() {
             ];
             // Feels Like
 
-            [
-                firstFeels.innerHTML,
-                secondFeels.innerHTML,
-                thirdFeels.innerHTML,
-                fourthFeels.innerHTML,
-                fifthFeels.innerHTML,
-            ] = [
-                "მგრძნობელობა: " +
-                Math.round(data["list"][0]["main"]["feels_like"] - 273.15) +
-                "°",
-                "მგრძნობელობა: " +
-                Math.round(data["list"][8]["main"]["feels_like"] - 273.15) +
-                "°",
-                "მგრძნობელობა: " +
-                Math.round(data["list"][16]["main"]["feels_like"] - 273.15) +
-                "°",
-                "მგრძნობელობა: " +
-                Math.round(data["list"][24]["main"]["feels_like"] - 273.15) +
-                "°",
-                "მგრძნობელობა: " +
-                Math.round(data["list"][32]["main"]["feels_like"] - 273.15) +
-                "°",
+            const gettingFeels = [
+                firstFeels,
+                secondFeels,
+                thirdFeels,
+                fourthFeels,
+                fifthFeels,
             ];
 
             //  Min Temperature
@@ -180,6 +164,11 @@ button.addEventListener("click", function() {
                 gettingMinTemp[j].innerHTML =
                     "მინ. ტემპერატურა: " +
                     (data["list"][i]["main"]["temp_min"] - 273.15).toFixed(1) +
+                    "°";
+                //feels like
+                gettingFeels[j].innerHTML =
+                    "მგრძნობელობა: " +
+                    Math.round(data["list"][i]["main"]["feels_like"] - 273.15) +
                     "°";
                 j++;
             }
