@@ -153,30 +153,14 @@ button.addEventListener("click", function() {
 
             //  Min Temperature
 
-            [
-                firstMinTemp.innerHTML,
-                secondMinTemp.innerHTML,
-                thirdMinTemp.innerHTML,
-                fourthMinTemp.innerHTML,
-                fifthMinTemp.innerHTML,
-            ] = [
-                "მინ. ტემპერატურა: " +
-                (data["list"][0]["main"]["temp_min"] - 273.15).toFixed(1) +
-                "°",
-                "მინ. ტემპერატურა: " +
-                (data["list"][8]["main"]["temp_min"] - 273.15).toFixed(1) +
-                "°",
-                "მინ. ტემპერატურა: " +
-                (data["list"][16]["main"]["temp_min"] - 273.15).toFixed(1) +
-                "°",
-                "მინ. ტემპერატურა: " +
-                (data["list"][24]["main"]["temp_min"] - 273.15).toFixed(1) +
-                "°",
-                "მინ. ტემპერატურა: " +
-                (data["list"][32]["main"]["temp_min"] - 273.15).toFixed(1) +
-                "°",
+            const gettingMinTemp = [
+                firstMinTemp,
+                secondMinTemp,
+                thirdMinTemp,
+                fourthMinTemp,
+                fifthMinTemp,
             ];
-            // MAX TEMPERATURE
+
             const gettingMaxTemp = [
                 firstMaxTemp,
                 secondMaxTemp,
@@ -187,43 +171,19 @@ button.addEventListener("click", function() {
             let j = 0;
 
             for (let i = 0; i < 33; i += 8) {
+                //max temp
                 gettingMaxTemp[j].innerHTML =
                     "მაქს. ტემპერატურა: " +
                     (data["list"][i]["main"]["temp_max"] - 273.15).toFixed(1) +
                     "°";
+                //min temp
+                gettingMinTemp[j].innerHTML =
+                    "მინ. ტემპერატურა: " +
+                    (data["list"][i]["main"]["temp_min"] - 273.15).toFixed(1) +
+                    "°";
                 j++;
             }
 
-            // "მაქს. ტემპერატურა: " +
-            // (data["list"][8]["main"]["temp_max"] - 273.15).toFixed(1) +
-            // "°",
-            // "მაქს. ტემპერატურა: " +
-            // (data["list"][16]["main"]["temp_max"] - 273.15).toFixed(1) +
-            // "°",
-            // "მაქს. ტემპერატურა: " +
-            // (data["list"][24]["main"]["temp_max"] - 273.15).toFixed(1) +
-            // "°",
-            // "მაქს. ტემპერატურა: " +
-            // (data["list"][32]["main"]["temp_max"] - 273.15).toFixed(1) +
-            // "°",
-
-            // const
-            //             //Making Borders
-            //             name.style.border = "0.1px solid #33C7FF";
-            //             desc.style.border = "0.1px solid #33C7FF";
-            //             temp.style.border = "0.1px solid #33C7FF";
-            //             //Getting Data From API
-            //             console.log(data);
-            //             tempValue = data["main"]["temp"];
-            //             nameValue = data["name"];
-            //             descValue = data["weather"][0]["description"];
-            //             //Display Data
-            //             name.innerHTML = "ქალაქი/ქვეყანა: " + nameValue;
-            //             desc.innerHTML = "ღრუბლიანობა:   " + descValue;
-            //             temp.innerHTML = "ტემპერატურა: " + tempValue + "°";
-            //         })
-            //         //Catching Error
-            //         .catch((err) => alert("Error #404 -> Wrong City"));
             //add styling
             let weatherDivs = document.querySelectorAll(".weather-div");
             for (let i = 0; i < weatherDivs.length; i++) {
