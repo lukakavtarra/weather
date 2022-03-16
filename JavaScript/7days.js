@@ -112,19 +112,14 @@ button.addEventListener("click", function() {
 
             //Weather Type
 
-            [
-                firstDesc.innerHTML,
-                secondDesc.innerHTML,
-                thirdDesc.innerHTML,
-                fourthDesc.innerHTML,
-                fifthDesc.innerHTML,
-            ] = [
-                data["list"][0]["weather"][0]["description"],
-                data["list"][8]["weather"][0]["description"],
-                data["list"][16]["weather"][0]["description"],
-                data["list"][24]["weather"][0]["description"],
-                data["list"][32]["weather"][0]["description"],
+            const gettingWeatherType = [
+                firstDesc,
+                secondDesc,
+                thirdDesc,
+                fourthDesc,
+                fifthDesc,
             ];
+
             // Feels Like
 
             const gettingFeels = [
@@ -170,6 +165,8 @@ button.addEventListener("click", function() {
                     "მგრძნობელობა: " +
                     Math.round(data["list"][i]["main"]["feels_like"] - 273.15) +
                     "°";
+                gettingWeatherType[j].innerHTML =
+                    data["list"][i]["weather"][0]["description"];
                 j++;
             }
 
